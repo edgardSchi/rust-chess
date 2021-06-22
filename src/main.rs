@@ -25,7 +25,7 @@ fn main() {
     }
 }
 
-//Menu for choosing if the user wants to play against a computer or human (human not implemented yet)
+//Menu for choosing if the user wants to play against a computer or human
 fn start_menu() -> PlayMode {
     println!("Play against a human or computer? [1/2]");
     println!("1) Computer");
