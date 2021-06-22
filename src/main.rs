@@ -21,7 +21,7 @@ enum TurnEnt {
 fn main() {
     match start_menu() {
         PlayMode::Computer => {computer_game();}
-        PlayMode::Human => {println!("Not implemented yet!");}
+        PlayMode::Human => {human_game();}
     }
 }
 
@@ -71,10 +71,9 @@ fn query_move() -> String {
 
 //start a computer game
 fn computer_game() {
-
     let start_color = color_menu();
-
     let mut board = Board::start_pos();
+
     print_board(&board.fen());
 
     match start_color {
@@ -91,8 +90,17 @@ fn computer_game() {
             }
         }
     }
+}
 
-    
+//start a game with two humans
+fn human_game() {
+    let mut board = Board::start_pos();
+    print_board(&board.fen());
+
+    while true {
+        if make_move(&mut board, TurnEnt::Human) {break}
+        if make_move(&mut board, TurnEnt::Human) {break}
+    }
 }
 
 //Check if a player won or a stalemate was achieved
